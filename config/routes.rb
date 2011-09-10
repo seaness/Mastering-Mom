@@ -1,4 +1,6 @@
 MasteringMom::Application.routes.draw do
+  get "blog_posts/new"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

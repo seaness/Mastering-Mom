@@ -4,7 +4,9 @@ gem 'rails', '3.0.9'
 gem 'sqlite3', '1.3.3'
 
 group :development do
+  gem 'autotest'
   gem 'rspec-rails', '2.6.1'
+  gem 'ZenTest'
 end
 
 group :test do
@@ -18,6 +20,7 @@ end
 # gem 'unicorn'
 
 # Deploy with Capistrano
+
 # gem 'capistrano'
 
 # To use debugger (ruby-debug for Ruby 1.8.7+, ruby-debug19 for Ruby 1.9.2+)
