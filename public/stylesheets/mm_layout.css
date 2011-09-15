@@ -1,0 +1,40 @@
+body {
+    background:  #D9005B;
+}
+
+header {
+    padding-top: 20px;
+}
+
+section {
+    background: white;
+    margin-top: 1em;
+    padding: 20px;
+}
+
+/* Titles */
+
+div.mm_titles {
+    background: white;
+    padding: 1em;
+}
+
+.mm_main {
+    color: #EC6AA1;
+    font-variant: small-caps;
+    font-family: 'Impact';
+}
+
+.mm_sub {
+    color: #EC6AA1;
+    font-family: cursive;
+    font-style: oblique;
+}
+
+/* Round corners - Credit to Michael Hartl http://ruby.railstutorial.org */
+
+.round {
+  -moz-border-radius:    10px;
+  -webkit-border-radius: 10px;
+  border-radius:         10px;
+}
