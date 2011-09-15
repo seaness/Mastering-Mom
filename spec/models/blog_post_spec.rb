@@ -1,11 +1,23 @@
 require 'spec_helper'
 
 describe BlogPost do
-  before(:each) do
-    @attr = { :title => "Example Post", :content => "This is a test blog post." }
+
+  context "Invalid blog post" do
+    it { should_not be_valid }
+    its(:title) { should be_nil }
+    its(:content) { should be_nil }
   end
 
-  it "should create a new instance given valid attributes" do
-    BlogPost.create!(@attr)
+  context "Valid blog post" do
+    subject do
+      blog_post = BlogPost.new :title => "foo", :content => "bar"
+      blog_post.save!
+      blog_post
+    end
+
+    it { should be_valid }
+    its(:title) { should == "foo" }
+    its(:content) { should == "bar" }
+    its(:post_date) { should be_nil }
   end
 end

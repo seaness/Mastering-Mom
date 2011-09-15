@@ -1,5 +1,5 @@
 MasteringMom::Application.routes.draw do
-  get "blog_posts/new"
+  resources :blog_posts
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

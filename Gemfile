@@ -3,6 +3,8 @@ source 'http://rubygems.org'
 gem 'rails', '3.0.9'
 gem 'sqlite3', '1.3.3'
 
+gem 'decent_exposure'
+
 group :development do
   gem 'autotest'
   gem 'rspec-rails', '2.6.1'
@@ -11,6 +13,8 @@ end
 
 group :test do
   gem 'rspec-rails', '2.6.1'
+  gem 'webrat'
+  gem 'factory_girl_rails'
 end
 
 # Bundle edge Rails instead:
