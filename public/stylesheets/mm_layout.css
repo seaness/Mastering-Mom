@@ -8,6 +8,7 @@ header {
 
 section {
     background: white;
+    height: 450px;
     margin-top: 1em;
     padding: 20px;
 }
