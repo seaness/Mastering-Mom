@@ -1,4 +1,10 @@
 MasteringMom::Application.routes.draw do
+  get "comments/create"
+
+  get "comments/destroy"
+
+  get "comments/index"
+
   resources :blog_posts
 
   # The priority is based upon order of creation:

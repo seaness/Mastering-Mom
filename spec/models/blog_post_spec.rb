@@ -22,9 +22,7 @@ describe BlogPost do
 
   context "Valid blog post" do
     subject do
-      blog_post = BlogPost.new :title => "foo", :content => "bar"
-      blog_post.save!
-      blog_post
+      BlogPost.create :title => "foo", :content => "bar"
     end
 
     it { should be_valid }
@@ -39,6 +37,17 @@ describe BlogPost do
     it "should have today's date when published" do
       subject.publish
       subject.post_date.to_date.should == Date.today
+    end
+
+    describe "comment association" do
+      it { should respond_to :comments }
+
+      it "should destroy comments when deleted" do
+        bp = BlogPost.create :title => "Destroy", :content => "Destroy"
+        comment = Factory(:comment, :blog_post => bp)
+        bp.destroy
+        Comment.find_by_id(comment.id).should be_nil
+      end
     end
   end
 end

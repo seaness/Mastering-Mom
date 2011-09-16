@@ -6,6 +6,7 @@ describe BlogPostsController do
   describe "GET 'show'" do
     before(:each) do
       @blog_post = Factory(:blog_post)
+      @blog_post.publish
     end
 
     it "should be successful" do

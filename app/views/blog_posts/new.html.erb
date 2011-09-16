@@ -3,5 +3,6 @@
     <%= f.text_field :title %><br />
     <%= f.label :content, "Blog post" %>
     <%= f.text_area :content %><br />
-    <%= f.submit "Submit" %>
+    <%= f.submit "Save", :name => "save" %>
+    <%= f.submit "Publish", :name => "publish" %>
 <% end %>

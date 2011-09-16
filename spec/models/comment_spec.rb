@@ -8,12 +8,23 @@ describe Comment do
   end
 
   describe "valid" do
+    let(:blog_post) { Factory(:blog_post) }
+
     subject do
-      comment = Comment.new :name => "Nobody In Particular", :content => "Best writer evah!"
+      comment = blog_post.comments.create :name => "Nobody In Particular", :content => "Best writer evah!"
     end
 
     it { should be_valid }
     its(:name) { should == "Nobody In Particular" }
     its(:content) { should == "Best writer evah!" }
+
+    describe "blog post association" do
+      it { should respond_to :blog_post }
+
+      it "should have the right associated blog post" do
+        subject.blog_post_id.should == blog_post.id
+        subject.blog_post.should == blog_post
+      end
+    end
   end
 end

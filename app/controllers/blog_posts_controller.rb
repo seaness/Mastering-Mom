@@ -13,7 +13,10 @@ class BlogPostsController < ApplicationController
     # Create a new BlogPost based on the parameters passed from new
     @blog_post = BlogPost.new(params[:blog_post])
     if @blog_post.save
-      redirect_to @blog_post
+      unless params[:publish].nil?
+        @blog_post.publish
+        redirect_to @blog_post
+      end
     else
       render 'new'
     end
