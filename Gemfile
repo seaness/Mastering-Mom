@@ -6,6 +6,7 @@ gem 'sqlite3', '1.3.3'
 gem 'decent_exposure'
 
 group :development do
+  gem 'annotate'
   gem 'autotest'
   gem 'rspec-rails', '2.6.1'
   gem 'ZenTest'

@@ -1,4 +1,6 @@
 <h2><%= @blog_post.title %></h2>
-<h3>Insert post date here!</h3>
+<h6><%= @blog_post.post_date.strftime '%A, %B %d, %Y' %></h6>
+
+<hr />
 
 <div><%= @blog_post.content %></div>
