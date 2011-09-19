@@ -3,6 +3,14 @@
   <h6><%= @blog_post.post_date.strftime '%A, %B %d, %Y' %></h6>
   <hr />
   <div><%= @blog_post.content %></div>
+  <div class="mm_nav_links">
+    <% if @prev_post %>
+    <%= link_to "Prev", blog_post_path(@prev_post) %>
+    <% end %>
+    <% if @next_post %>
+    <%= link_to "Next", blog_post_path(@next_post) %>
+    <% end %>
+  </div>
 </section>
 
 <section class="round">

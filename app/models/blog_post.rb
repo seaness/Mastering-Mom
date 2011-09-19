@@ -17,7 +17,19 @@ class BlogPost < ActiveRecord::Base
   validates :content, :presence => true
 
   has_many :comments, :dependent => :destroy
-  
+
+  def self.get_last_post
+    find(:last, :conditions => "post_date IS NOT NULL")
+  end
+
+  def self.get_prev_post(blog_post)
+    find(:last, :conditions => [ "id < ? and post_date IS NOT NULL", blog_post.id ])
+  end
+
+  def self.get_next_post(blog_post)
+    find(:first, :conditions => [ "id > ? and post_date IS NOT NULL", blog_post.id ])
+  end
+
   def publish
     # Set the post as published and mark it's publish date as today.
     if self.valid? and not self.post_date?

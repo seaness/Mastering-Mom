@@ -3,6 +3,8 @@ class BlogPostsController < ApplicationController
   def show
     @blog_post = BlogPost.find(params[:id])
     @comment = @blog_post.comments.build
+    @prev_post = BlogPost.get_prev_post @blog_post
+    @next_post = BlogPost.get_next_post @blog_post
   end
 
   def new
