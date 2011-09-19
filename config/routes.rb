@@ -1,4 +1,6 @@
 MasteringMom::Application.routes.draw do
+  root :to => "pages#home"
+
   resources :blog_posts
   resources :comments, :only => [:create, :destroy]
 
