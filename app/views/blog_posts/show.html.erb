@@ -1,6 +1,12 @@
-<h2><%= @blog_post.title %></h2>
-<h6><%= @blog_post.post_date.strftime '%A, %B %d, %Y' %></h6>
+<section class="round">
+  <h2 class="mm_main"><%= @blog_post.title %></h2>
+  <h6><%= @blog_post.post_date.strftime '%A, %B %d, %Y' %></h6>
+  <hr />
+  <div><%= @blog_post.content %></div>
+</section>
 
-<hr />
-
-<div><%= @blog_post.content %></div>
+<section class="round">
+  <h3 class="mm_main">Add a comment</h3>
+  <hr/>
+  <%= render 'shared/comment_form' %>
+</section>

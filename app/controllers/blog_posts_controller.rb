@@ -2,6 +2,7 @@ class BlogPostsController < ApplicationController
 
   def show
     @blog_post = BlogPost.find(params[:id])
+    @comment = @blog_post.comments.build
   end
 
   def new
@@ -16,9 +17,26 @@ class BlogPostsController < ApplicationController
       unless params[:publish].nil?
         @blog_post.publish
         redirect_to @blog_post
+      else
+        redirect_to edit_blog_post_path @blog_post
       end
     else
       render 'new'
+    end
+  end
+
+  def edit
+    # Do we allow editing of an already published post?
+    @blog_post = BlogPost.find(params[:id])
+  end
+
+  def update
+    @blog_post = BlogPost.find(params[:id])
+    if @blog_post.update_attributes(params[:comment])
+      unless params[:publish].nil?
+        @blog_post.publish
+        redirect_to blog_post_path @blog_post
+      end
     end
   end
 

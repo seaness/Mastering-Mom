@@ -28,6 +28,23 @@ describe BlogPostsController do
       get :show, :id => @blog_post
       response.should have_selector("div", :content => @blog_post.content)
     end
+
+    describe "leaving a comment" do
+      it "should have a comment area" do
+        get :show, :id => @blog_post
+        response.should have_selector("h3", :content => "Add a comment")
+      end
+
+      it "should have a name field for a comment" do
+        get :show, :id => @blog_post
+        response.should have_selector("input#comment_name")
+      end
+
+      it "should have a content field for a comment" do
+        get :show, :id => @blog_post
+        response.should have_selector("input#comment_content")
+      end
+    end
   end
 
   describe "GET 'new'" do
@@ -62,9 +79,14 @@ describe BlogPostsController do
         }.to change { BlogPost.count }.by(1)
       end
 
-      it "should redirect to the blog post show page" do
-        post :create, :blog_post => @attr
+      it "should redirect to the blog post show page if published" do
+        post :create, :blog_post => @attr, :publish => 'publish'
         response.should redirect_to(blog_post_path(assigns(:blog_post)))
+      end
+
+      it "should redirect to the blog post edit page if saved" do
+        post :create, :blog_post => @attr, :save => 'save'
+        response.should redirect_to(edit_blog_post_path(assigns(:blog_post)))
       end
 
     end
