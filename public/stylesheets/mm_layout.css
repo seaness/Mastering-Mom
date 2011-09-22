@@ -31,6 +31,10 @@ div.mm_titles {
     font-style: oblique;
 }
 
+.comment_name {
+    font-size: large;
+}
+
 /* Round corners - Credit to Michael Hartl http://ruby.railstutorial.org */
 
 .round {

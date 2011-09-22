@@ -1,7 +1,10 @@
-<%= form_for @comment do |f| %>
+<%= form_for @comment, :remote => true do |f| %>
+  <%= f.hidden_field :blog_post_id %>
   <%= f.label :name %>
   <%= f.text_field :name %>
   <br/>
   <%= f.label :content %>
   <%= f.text_field :content %>
+  <br/>
+  <%= f.submit %>
 <% end %>

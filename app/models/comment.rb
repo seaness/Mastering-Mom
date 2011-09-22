@@ -5,4 +5,6 @@ class Comment < ActiveRecord::Base
   validates :content, :presence => true
 
   belongs_to :blog_post
+
+  default_scope :order => 'comments.created_at DESC'
 end

@@ -17,4 +17,7 @@
   <h3 class="mm_main">Add a comment</h3>
   <hr/>
   <%= render 'shared/comment_form' %>
+  <span id="comment_list">
+    <%= render :partial => 'shared/comment', :collection => @comments %>
+  </span>
 </section>
