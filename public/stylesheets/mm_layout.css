@@ -47,6 +47,15 @@ span.h3 {
     float: right;
 }
 
+.mm_nav_links {
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+#next_link {
+    float: right;
+}
+
 /* Round corners - Credit to Michael Hartl http://ruby.railstutorial.org */
 
 .round {

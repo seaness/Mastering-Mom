@@ -5,10 +5,10 @@
   <div><%= @blog_post.content %></div>
   <div class="mm_nav_links">
     <% if @prev_post %>
-    <%= link_to "Prev", blog_post_path(@prev_post) %>
+    <%= link_to "<< Prev", blog_post_path(@prev_post), :id => "prev_link" %>
     <% end %>
     <% if @next_post %>
-    <%= link_to "Next", blog_post_path(@next_post) %>
+    <%= link_to "Next >>", blog_post_path(@next_post), :id => "next_link" %>
     <% end %>
   </div>
 </section>
