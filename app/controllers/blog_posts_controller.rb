@@ -1,4 +1,5 @@
 class BlogPostsController < ApplicationController
+  before_filter :authenticate_admin, :only => [:new, :create]
 
   def show
     @blog_post = BlogPost.find(params[:id])
@@ -42,5 +43,13 @@ class BlogPostsController < ApplicationController
       end
     end
   end
+
+  private
+
+    def authenticate_admin
+      unless current_user.try(:admin?)
+        redirect_to root_path
+      end
+    end
 
 end
