@@ -25,14 +25,26 @@ div.mm_titles {
     font-family: 'Impact';
 }
 
+span.h1 {
+    font-size: xx-large;
+}
+
 .mm_sub {
     color: #EC6AA1;
     font-family: cursive;
     font-style: oblique;
 }
 
+span.h3 {
+    font-size: large;
+}
+
 .comment_name {
     font-size: large;
+}
+
+.links {
+    float: right;
 }
 
 /* Round corners - Credit to Michael Hartl http://ruby.railstutorial.org */

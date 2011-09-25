@@ -28,3 +28,16 @@ describe Comment do
     end
   end
 end
+
+# == Schema Information
+#
+# Table name: comments
+#
+#  id           :integer         not null, primary key
+#  name         :string(255)
+#  content      :string(255)
+#  created_at   :datetime
+#  updated_at   :datetime
+#  blog_post_id :integer
+#
+
